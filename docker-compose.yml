@@ -1,4 +1,17 @@
-version: '3.8'
+# version: '3.8'
+
+# services:
+#   landing:
+#     container_name: motocross_landing
+#     build:
+#       context: ./frontend
+#       dockerfile: dockerfile
+#     ports:
+#       - "3000:80"
+#     restart: unless-stopped
+
+
+
 
 services:
   landing:
@@ -6,6 +19,9 @@ services:
     build:
       context: ./frontend
       dockerfile: dockerfile
-    ports:
-      - "3000:80"
     restart: unless-stopped
+    networks: [proxy]
+
+networks:
+  proxy:
+    external: true
